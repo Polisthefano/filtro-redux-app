@@ -1,0 +1,11 @@
+<ng-container *ngIf="todo">
+<li [ngClass]="{'completed': todo.completado,'editing':editando}">
+  <div class="view">
+    <input class="toggle" type="checkbox" [formControl]="check" [checked]=todo.completado>
+    <label (dblclick)="editar()">{{todo.texto}}</label>
+    <button class="destroy" (click)=borrarTodo()></button>
+  </div>
+  <input class="edit" #txtInput [value]=todo.texto
+  [formControl]="txtInputForm" (blur)="terminarEdicion()"> <!--blur es que hace cuando pierde el foco-->
+</li>
+</ng-container>

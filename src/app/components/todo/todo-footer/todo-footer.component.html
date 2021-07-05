@@ -1,0 +1,18 @@
+<footer class="footer">
+  <!-- This should be `0 items left` by default -->
+  <span class="todo-count"><strong>{{pendientes}}</strong> Tareas por hacer</span>
+  <!-- Remove this if you don't implement routing -->
+  <ul class="filters">
+    <li>
+      <a [ngClass]="{'selected': filtroState=='Todas'}" (click)="listarAccion('Todas')">Todas</a>
+    </li>
+    <li>
+      <a  [ngClass]="{'selected': filtroState=='Pendientes'}" (click)="listarAccion('Pendientes')">Pendientes</a>
+    </li>
+    <li>
+      <a [ngClass]="{'selected': filtroState=='Completas'}" (click)="listarAccion('Completas')">Completas</a>
+    </li>
+  </ul>
+  <!-- Hidden if no completed items are left ↓ -->
+  <button type="button" class="clear-completed" (click)="limpiarCompletesTodos()">Limpiar completas</button>
+</footer>
